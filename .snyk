@@ -1,0 +1,29 @@
+# Snyk (https://snyk.io) policy file
+
+version: v1.25.0
+
+# Ignore specific vulnerabilities
+ignore: {}
+
+# Patch vulnerabilities
+patch: {}
+
+# Language settings
+language-settings:
+  java:
+    # Fail on high severity vulnerabilities
+    fail-on: upgradable
+  javascript:
+    # Fail on high severity vulnerabilities
+    fail-on: upgradable
+
+# Exclude paths from scanning
+exclude:
+  global:
+    - '**/node_modules/**'
+    - '**/target/**'
+    - '**/.git/**'
+    - '**/dist/**'
+    - '**/.next/**'
+    - '**/build/**'
+    - '**/coverage/**'
