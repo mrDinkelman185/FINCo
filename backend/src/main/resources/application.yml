@@ -1,0 +1,75 @@
+spring:
+  application:
+    name: finco-trading
+  
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/finco_db}
+    username: ${SPRING_DATASOURCE_USERNAME:finco_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:finco_password}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: public
+  
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+  
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+      password: ${SPRING_REDIS_PASSWORD:}
+      timeout: 60000
+  
+  security:
+    user:
+      name: admin
+      password: admin
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-stacktrace: on_param
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+jwt:
+  secret: ${JWT_SECRET:default_secret_change_in_production}
+  expiration: 86400000
+
+app:
+  region: ${AWS_REGION:us-east-1}
+  multi-region-enabled: ${MULTI_REGION_ENABLED:false}
+  fix-protocol-enabled: ${ENABLE_FIX_PROTOCOL:false}
+  compliance-checks-enabled: ${ENABLE_COMPLIANCE_CHECKS:true}
+
+logging:
+  level:
+    com.finco.trading: INFO
+    org.springframework.web: INFO
+    org.hibernate: WARN
