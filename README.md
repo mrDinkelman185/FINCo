@@ -1,6 +1,11 @@
 # FINCo - Financial Trading Platform
 
-A comprehensive fintech trading platform built with modern technologies and cloud-native architecture.
+[![Backend Build](https://github.com/mrDinkelman185/FINCo/actions/workflows/backend-build.yml/badge.svg)](https://github.com/mrDinkelman185/FINCo/actions/workflows/backend-build.yml)
+[![Frontend Build](https://github.com/mrDinkelman185/FINCo/actions/workflows/frontend-build.yml/badge.svg)](https://github.com/mrDinkelman185/FINCo/actions/workflows/frontend-build.yml)
+[![Security Scan](https://github.com/mrDinkelman185/FINCo/actions/workflows/security-scan.yml/badge.svg)](https://github.com/mrDinkelman185/FINCo/actions/workflows/security-scan.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A comprehensive, production-ready fintech trading platform built with modern technologies and cloud-native architecture. Features order management, position tracking, compliance frameworks, and multi-region deployment capabilities.
 
 ## Architecture
 
@@ -178,14 +183,40 @@ Placeholder implementations for:
 
 ## Contributing
 
-1. Create a feature branch
-2. Make changes
-3. Run tests
-4. Submit pull request
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## Documentation
+
+- [Architecture Documentation](ARCHITECTURE.md) - Detailed system architecture
+- [Deployment Guide](DEPLOYMENT.md) - Complete deployment instructions
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute
+
+## Project Structure
+
+```
+FINCo/
+├── backend/              # Java Spring Boot backend
+├── frontend/             # Next.js/React frontend  
+├── terraform/            # Infrastructure as Code
+├── .github/workflows/    # CI/CD pipelines
+├── docker-compose.yml    # Local development setup
+└── Makefile             # Common operations
+```
+
+## Quick Commands
+
+Using Make:
+```bash
+make up          # Start all services
+make down        # Stop all services
+make logs        # View logs
+make test        # Run all tests
+make help        # Show all commands
+```
 
 ## License
 
-Proprietary - All rights reserved
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
