@@ -2,10 +2,10 @@
 
 This document tracks security vulnerability fixes applied to the FINCo platform.
 
-## 2026-02-02: Critical Dependency Updates (Updated)
+## 2026-02-02: Critical Dependency Updates (Final Update)
 
 ### Issue
-Multiple critical security vulnerabilities were identified in frontend npm dependencies. Follow-up update required to address remaining Next.js vulnerabilities.
+Multiple critical security vulnerabilities were identified in frontend npm dependencies. Multiple iterations required to reach fully patched version.
 
 ### Vulnerabilities Fixed
 
@@ -16,18 +16,24 @@ Multiple critical security vulnerabilities were identified in frontend npm depen
   - DoS attack through lack of data size check
   - SSRF and credential leakage via absolute URL
   - Server-Side Request Forgery
-- **Action**: Updated axios from 1.6.7 to 1.12.0
+- **Action**: Updated axios from 1.6.7 to 1.12.0 ✅
 
-#### next 14.1.0 → 15.0.8 (via 14.2.35)
+#### next 14.1.0 → 15.2.3 (via 14.2.35 → 15.0.8)
 - **CVE**: Multiple DoS and Authorization Bypass vulnerabilities
 - **Severity**: High/Critical
 - **Issues Fixed**:
   - HTTP request deserialization DoS with React Server Components
-  - Authorization bypass in middleware
-  - Cache poisoning
+  - Authorization bypass in middleware (multiple ranges)
+  - Cache poisoning vulnerabilities
   - SSRF in Server Actions
-- **Action**: Updated Next.js from 14.1.0 to 14.2.35, then to 15.0.8 to fully resolve all vulnerabilities
-- **Note**: Version 14.2.35 still had DoS vulnerabilities; 15.0.8 is the minimum fully patched version
+  - DoS via cache poisoning (15.0.x range)
+- **Update History**:
+  - Attempt 1: 14.1.0 → 14.2.35 (Still vulnerable ❌)
+  - Attempt 2: 14.2.35 → 15.0.8 (Still vulnerable ❌)
+  - Final Fix: 15.0.8 → 15.2.3 (Fully patched ✅)
+- **Note**: 15.2.3 is the minimum version that addresses all known vulnerabilities including:
+  - DoS via cache poisoning (< 15.1.8)
+  - Authorization bypass (< 15.2.3)
 
 ### Additional Updates
 - Updated React from 18.2.0 to 19.0.0 (required for Next.js 15)
@@ -87,7 +93,7 @@ To prevent future vulnerabilities:
 | Date | Package | Old Version | New Version | Reason |
 |------|---------|-------------|-------------|--------|
 | 2026-02-02 | axios | 1.6.7 | 1.12.0 | DoS & SSRF vulnerabilities |
-| 2026-02-02 | next | 14.1.0 | 15.0.8 | Multiple DoS & Auth Bypass (14.2.35 insufficient) |
+| 2026-02-02 | next | 14.1.0 | 15.2.3 | Multiple DoS & Auth Bypass (via 14.2.35 → 15.0.8 → 15.2.3) |
 | 2026-02-02 | react | 18.2.0 | 19.0.0 | Required for Next.js 15 compatibility |
 | 2026-02-02 | typescript | 5.3.3 | 5.7.3 | Latest stable version |
 
