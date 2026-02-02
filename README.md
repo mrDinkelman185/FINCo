@@ -24,7 +24,7 @@ A comprehensive, production-ready fintech trading platform built with modern tec
 
 ### Frontend
 - **Language**: TypeScript
-- **Framework**: Next.js 14.2+ with React 18+
+- **Framework**: Next.js 15+ with React 19
 - **UI Components**: Modern trading dashboard
 - **Features**:
   - Real-time order management

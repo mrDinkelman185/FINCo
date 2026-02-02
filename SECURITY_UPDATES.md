@@ -2,10 +2,10 @@
 
 This document tracks security vulnerability fixes applied to the FINCo platform.
 
-## 2026-02-02: Critical Dependency Updates
+## 2026-02-02: Critical Dependency Updates (Updated)
 
 ### Issue
-Multiple critical security vulnerabilities were identified in frontend npm dependencies.
+Multiple critical security vulnerabilities were identified in frontend npm dependencies. Follow-up update required to address remaining Next.js vulnerabilities.
 
 ### Vulnerabilities Fixed
 
@@ -18,7 +18,7 @@ Multiple critical security vulnerabilities were identified in frontend npm depen
   - Server-Side Request Forgery
 - **Action**: Updated axios from 1.6.7 to 1.12.0
 
-#### next 14.1.0 → 14.2.35
+#### next 14.1.0 → 15.0.8 (via 14.2.35)
 - **CVE**: Multiple DoS and Authorization Bypass vulnerabilities
 - **Severity**: High/Critical
 - **Issues Fixed**:
@@ -26,10 +26,11 @@ Multiple critical security vulnerabilities were identified in frontend npm depen
   - Authorization bypass in middleware
   - Cache poisoning
   - SSRF in Server Actions
-- **Action**: Updated Next.js from 14.1.0 to 14.2.35
+- **Action**: Updated Next.js from 14.1.0 to 14.2.35, then to 15.0.8 to fully resolve all vulnerabilities
+- **Note**: Version 14.2.35 still had DoS vulnerabilities; 15.0.8 is the minimum fully patched version
 
 ### Additional Updates
-- Updated React from 18.2.0 to 18.3.1
+- Updated React from 18.2.0 to 19.0.0 (required for Next.js 15)
 - Updated TypeScript from 5.3.3 to 5.7.3
 - Updated ESLint and related packages to latest secure versions
 - Updated all type definitions to match new package versions
@@ -86,8 +87,8 @@ To prevent future vulnerabilities:
 | Date | Package | Old Version | New Version | Reason |
 |------|---------|-------------|-------------|--------|
 | 2026-02-02 | axios | 1.6.7 | 1.12.0 | DoS & SSRF vulnerabilities |
-| 2026-02-02 | next | 14.1.0 | 14.2.35 | Multiple DoS & Auth Bypass |
-| 2026-02-02 | react | 18.2.0 | 18.3.1 | Compatibility & security |
+| 2026-02-02 | next | 14.1.0 | 15.0.8 | Multiple DoS & Auth Bypass (14.2.35 insufficient) |
+| 2026-02-02 | react | 18.2.0 | 19.0.0 | Required for Next.js 15 compatibility |
 | 2026-02-02 | typescript | 5.3.3 | 5.7.3 | Latest stable version |
 
 ## References

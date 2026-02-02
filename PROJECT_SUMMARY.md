@@ -27,7 +27,7 @@ FINCo is a comprehensive, production-ready fintech trading platform built from s
 
 ### Frontend
 - **Runtime**: Node.js 20
-- **Framework**: Next.js 14.2+ (React 18)
+- **Framework**: Next.js 15.0+ (React 19)
 - **Language**: TypeScript 5.7
 - **Styling**: CSS Modules
 - **HTTP Client**: Axios 1.12
